@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/userphoto",
+      "handler": "Userphoto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userphoto/count",
+      "handler": "Userphoto.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userphoto/:_id",
+      "handler": "Userphoto.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/userphoto",
+      "handler": "Userphoto.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/userphoto/:_id",
+      "handler": "Userphoto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/userphoto/:_id",
+      "handler": "Userphoto.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
