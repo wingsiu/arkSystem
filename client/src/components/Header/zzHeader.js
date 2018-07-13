@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   Nav,
-  Navbar,
-  Collapse,
   NavbarBrand,
   NavbarToggler,
   NavItem,
@@ -12,24 +10,13 @@ import {
 } from 'reactstrap';
 import HeaderDropdown from './HeaderDropdown';
 
-import './styles.scss';
-
 class Header extends Component {
 
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-      isLogin: false
-    };
-    }
-    
-    toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-    }
+    this.state = { isLogin: false }
+  }
+  
     componentDidMount(){
     console.info("starting");
 
@@ -59,38 +46,23 @@ class Header extends Component {
 
   render() {
     return (
-        <div>
-         <Navbar color="dark" dark expand="md" >
-          <NavbarBrand href="#">
-            <span><img src="../img/arklogo2.png" alt=""></img></span></NavbarBrand>
-          <NavbarToggler onClick={this.toggle} >
-                  <span className="navbar-toggler-icon"></span>
-          </NavbarToggler>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Home</NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Page2</NavLink>
-              </NavItem>  
-            </Nav>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Page3</NavLink>
-              </NavItem>  
-            </Nav>
-            
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>  
-            
+      <header className="app-header navbar navbar-fixed-top navbar-inverse" role="banner">
+        <NavbarBrand href="#"></NavbarBrand>
+        <NavbarToggler className="d-md-down-none" onClick={this.sidebarToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </NavbarToggler>
+        <Nav className="d-md-down-none" navbar>
+          <NavItem className="px-3">
+            <NavLink href="#">Dashboard</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink href="#">Users</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink href="#">Settings</NavLink>
+          </NavItem>
+        </Nav>
+        <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">
             <NavLink href="#"><i className="icon-bell"></i><Badge pill color="danger">5</Badge></NavLink>
           </NavItem>
@@ -106,14 +78,11 @@ class Header extends Component {
             <NavLink href="#">SignIn</NavLink>
           </NavItem>
            )}
+         </Nav>
         <NavbarToggler className="d-md-down-none" onClick={this.asideToggle}>
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
-        </Nav>
-          </Collapse>
-        </Navbar>
-    </div>
-
+      </header>
     );
   }
 }
