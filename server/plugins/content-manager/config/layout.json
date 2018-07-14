@@ -41,5 +41,12 @@
         "appearance": ""
       }
     }
+  },
+  "userPhotos": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
   }
 }

@@ -88,10 +88,13 @@ class AuthPage extends React.Component {
       .catch(err => {
         // TODO handle errors for other views
         // This is just an example
-        const errors = [
-          { name: 'identifier', errors: [err.response.payload.message] },
-        ];
-        this.setState({ didCheckErrors: !this.state.didCheckErrors, errors });
+//        alert("error", err.status);
+  /*      const errors = [
+          { name: 'identifier', errors:
+          [err.response.payload.message] },
+              ];
+        this.setState({ didCheckErrors: !this.state.didCheckErrors, errors }); */
+        this.redirectUser();    
       });
   };
 

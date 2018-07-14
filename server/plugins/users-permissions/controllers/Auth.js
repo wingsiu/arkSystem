@@ -29,11 +29,13 @@ module.exports = {
 
       // The identifier is required.
       if (!params.identifier) {
+      console.log("Please provide your username or your e-mail.");
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.email.provide' }] }] : 'Please provide your username or your e-mail.');
       }
 
       // The password is required.
       if (!params.password) {
+      console.log("Please provide your password!");
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.password.provide' }] }] : 'Please provide your password.');
       }
 
@@ -46,28 +48,36 @@ module.exports = {
       if (isEmail) {
         query.email = params.identifier.toLowerCase();
       } else {
-        query.username = params.identifier;
+//by alpha
+          query.username = params.identifier.toLowerCase();
+//        query.username = params.identifier;
       }
 
       // Check if the user exists.
       const user = await strapi.query('user', 'users-permissions').findOne(query, ['role']);
 
       if (!user) {
+        console.log(`Identifier or password invalid.!! ${params.identifier}!!!`);
+
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.invalid' }] }] : 'Identifier or password invalid.');
       }
 
       if (user.role.type !== 'root' && ctx.request.admin) {
+         console.log("You're not an administrator.");
+        
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.noAdminAccess' }] }] : `You're not an administrator.`);
       }
 
       // The user never authenticated with the `local` provider.
       if (!user.password) {
-        return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.password.local' }] }] : 'This user never set a local password, please login thanks to the provider used during account creation.');
+          console.log("This user never set a local password, please login thanks to the provider used during account creation.");
+                return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.password.local' }] }] : 'This user never set a local password, please login thanks to the provider used during account creation.');
       }
 
       const validPassword = strapi.plugins['users-permissions'].services.user.validatePassword(params.password, user.password);
 
       if (!validPassword) {
+        console.log("Identifier or password invalid. $user.password, $params.password");  
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.invalid' }] }] : 'Identifier or password invalid.');
       } else {
         ctx.send({
@@ -77,7 +87,8 @@ module.exports = {
       }
     } else {
       if (!_.get(await store.get({key: 'grant'}), [provider, 'enabled'])) {
-        return ctx.badRequest(null, 'This provider is disabled.');
+          console.log("This provider is disabled."); 
+          return ctx.badRequest(null, 'This provider is disabled.');
       }
 
       // Connect the user thanks to the third-party provider.

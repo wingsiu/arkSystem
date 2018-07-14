@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@coreui/coreui": "^2.0.3",
     "apollo-boost": "^0.1.4",
     "apollo-client-preset": "^1.0.8",
     "apollo-link": "^1.2.2",
