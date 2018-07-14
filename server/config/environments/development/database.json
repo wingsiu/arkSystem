@@ -15,6 +15,18 @@
         "authenticationDatabase": "",
         "ssl": false
       }
+    },
+  "arkedu": {
+      "connector": "strapi-bookshelf",
+      "settings": {
+        "client": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "database": "arkedu",
+        "username": "alpha",
+        "password": "wing0ng"
+      }
     }
+
   }
 }

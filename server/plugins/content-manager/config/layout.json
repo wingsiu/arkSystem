@@ -5,5 +5,41 @@
         "appearance": ""
       }
     }
+  },
+  "items": {
+    "attributes": {
+      "ID": {
+        "appearance": ""
+      },
+      "name": {
+        "appearance": ""
+      },
+      "parent": {
+        "appearance": ""
+      },
+      "sortorder": {
+        "appearance": ""
+      },
+      "alloweddomains": {
+        "appearance": ""
+      }
+    }
+  },
+  "item": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "parent": {
+        "appearance": ""
+      }
+    }
+  },
+  "photo": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
   }
 }
