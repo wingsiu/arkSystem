@@ -25,14 +25,22 @@ import './styles.scss';
 
 class HomePage extends React.Component {
     
+     constructor(props) {
+    super(props);
+    this.state = {
+      userInfo: auth.getUserInfo(),
+      isLogin : auth.getUserInfo() ? true : false
+    };
+    }  
   
-  render() {
+render() {
     return (
       <div >
       <Header/>
 
         <div style={{ marginTop: '15%' }}>
-        <h1>You're now logged in!!!</h1>
+          {this.state.isLogin ? (<h1>{this.state.userInfo.username}.. You're now logged in!!!{this.state.isLogin}</h1>) :
+        (<h1>You didn't Login yet!!! </h1>)}
         <div style={{ marginTop: '50px' }}>
           <Button
             primary
