@@ -27,15 +27,18 @@ const TableRow = (props) => {
       }}
     >
       {props.headers.map(header => {
-        if (header === 'pictures' && !isEmpty(props.data[header])) {
+//          if (header === 'pictures')       
+       if (header === 'pictures' && !isEmpty(props.data[header])) 
+        {
           // Get the first pictures for display
-          const picture = isArray(props.data[header]) ? get(props.data, [header, '0', 'url'], '') : get(props.data, ['header', 'url'], '');
+
+        const picture = isArray(props.data[header]) ? get(props.data, [header, '0', 'url'], '') : get(props.data, ['header', 'url'], '');
           // check if we need to add the strapiBackendURL if the upload provider is local
-//          const src = startsWith(picture, '/') ? `http://localhost:1337${picture}` : picture;
-                         const src = `http://localhost:1337${props.data['pictures'].url}`;
+//          const src = startsWith(picture, '/') ? //`http://localhost:1337${picture}` : picture;
+                         const src = `http://localhost:1337${props.data[header][0].photo.url}`;
           return (
             <td key={header}>
-              <img src={src} alt={props.data[header].name} />
+              <img src={src} alt={props.data[header][0].photo.name} />
             </td>
           );
         }

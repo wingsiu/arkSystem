@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/systemuser",
+      "handler": "Systemuser.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/systemuser/count",
+      "handler": "Systemuser.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/systemuser/:id",
+      "handler": "Systemuser.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/systemuser",
+      "handler": "Systemuser.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/systemuser/:id",
+      "handler": "Systemuser.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/systemuser/:id",
+      "handler": "Systemuser.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/systemuser/:id/relationships/:relation",
+      "handler": "Systemuser.createRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/systemuser/:id/relationships/:relation",
+      "handler": "Systemuser.updateRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/systemuser/:id/relationships/:relation",
+      "handler": "Systemuser.destroyRelation",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "userphotos",
+  "info": {
+    "name": "userphoto",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "user": {
+      "model": "user",
+      "via": "userphotos",
+      "columnName": "username",
+      "plugin": "users-permissions"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "connection": "default",
+  "collectionName": "users",
+  "info": {
+    "name": "systemuser",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "username": {
+      "type": "string"
+    }
+  }
+}

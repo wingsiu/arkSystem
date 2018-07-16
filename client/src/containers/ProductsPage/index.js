@@ -47,7 +47,7 @@ class ProductsPage extends React.Component {
                 </div>
                 <div className="row">
                   <Table
-                    data={data.userphotos}
+                    data={data.users}
                     headers={['_id', 'name', 'pictures', '']}
                     onClick={this.onClick}
                   />

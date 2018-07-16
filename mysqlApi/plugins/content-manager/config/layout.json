@@ -1,0 +1,79 @@
+{
+  "article": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "coucou": {
+        "appearance": ""
+      },
+      "content": {
+        "appearance": "WYSIWYG"
+      },
+      "code": {
+        "appearance": ""
+      }
+    }
+  },
+  "tag": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "category": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "reference": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      }
+    }
+  },
+  "item": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "parent": {
+        "appearance": ""
+      },
+      "title": {
+        "appearance": ""
+      },
+      "sortorder": {
+        "appearance": ""
+      }
+    }
+  },
+  "users": {
+    "attributes": {
+      "username": {
+        "appearance": ""
+      }
+    }
+  },
+  "userPhoto": {
+    "attributes": {
+      "systemuser": {
+        "appearance": ""
+      },
+      "username": {
+        "appearance": ""
+      }
+    }
+  },
+  "systemUser": {
+    "attributes": {
+      "username": {
+        "appearance": ""
+      }
+    }
+  }
+}

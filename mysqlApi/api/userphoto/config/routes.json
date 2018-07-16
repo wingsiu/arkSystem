@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/userphoto",
+      "handler": "Userphoto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userphoto/count",
+      "handler": "Userphoto.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userphoto/:id",
+      "handler": "Userphoto.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/userphoto",
+      "handler": "Userphoto.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/userphoto/:id",
+      "handler": "Userphoto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/userphoto/:id",
+      "handler": "Userphoto.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/userphoto/:id/relationships/:relation",
+      "handler": "Userphoto.createRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/userphoto/:id/relationships/:relation",
+      "handler": "Userphoto.updateRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/userphoto/:id/relationships/:relation",
+      "handler": "Userphoto.destroyRelation",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
