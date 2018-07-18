@@ -15,6 +15,7 @@ import HomePage from '../../containers/HomePage';
 import NotFoundPage from '../../containers/NotFoundPage';
 import ProductDetailsPage from '../../containers/ProductDetailsPage';
 import ProductsPage from '../../containers/ProductsPage';
+import ItemPage from '../../containers/ItemPage';
 
 
 // This component ios HoC that prevents the user from accessing a route if he's not logged in
@@ -32,6 +33,8 @@ class App extends Component {
             {/* A user can't go to the HomePage if is not authenticated */}
             <Route path="/auth/:authType/:id?" component={AuthPage} />
             <Route path="/" component={HomePage} exact />
+            <PrivateRoute exact path="/item" component={ItemPage} />            
+        
             <PrivateRoute exact path="/products" component={ProductsPage} />
             <PrivateRoute exact path="/product/:id" component={ProductDetailsPage} />
             <PrivateRoute path="/form/:contentType/:id" component={EditPage} />
