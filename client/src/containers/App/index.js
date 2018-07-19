@@ -24,15 +24,45 @@ import PrivateRoute from '../../containers/PrivateRoute';
 // Design
 //import './styles.css';
 
+ 
+
 class App extends Component {
+     constructor(props) {
+    super(props);
+    
+    this.state = {
+      isLoading : true,
+      topMenu : {},
+      sideMenu : {},
+      contents :{},
+    };
+    }  
+  
+componentDidMount() {
+    console.log("App props:",window.location.pathname);
+    let requestURL = 'http://localhost:3001/en'+window.location.pathname;
+    fetch(requestURL)
+      .then(response => response.json())
+      .then(data => {this.setState({topMenu:data.topMenu,
+                                    sideMenu:data.sideMenu,
+                                  contents: data.contents});
+    this.setState({isLoading : false});
+          
+    }); 
+ } 
+
+    
   render() {
+   if (!this.state.isLoading){
     return (
       <Router>
         <div className="App">
           <Switch>
             {/* A user can't go to the HomePage if is not authenticated */}
             <Route path="/auth/:authType/:id?" component={AuthPage} />
-            <Route path="/" component={HomePage} exact />
+            <Route path="/" render={(props) => (
+  <HomePage {...props} menu={this.state.topMenu} />
+        )}/>
             <PrivateRoute exact path="/item" component={ItemPage} />            
         
             <PrivateRoute exact path="/products" component={ProductsPage} />
@@ -44,6 +74,7 @@ class App extends Component {
         </div>
       </Router>
     );
+   } else return <p>Loading ...</p>;
   }
 }
 

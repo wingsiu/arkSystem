@@ -14,15 +14,19 @@ import HeaderDropdown from './HeaderDropdown';
 
 import './styles.scss';
 
+
 class Header extends Component {
 
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    this.state = {
+    console.log("header menu:", props.menu)
+    this.state = {  
+      menu : [],
       isOpen: false,
       isLogin: false
     };
+    console.log("Header prop:", props.menu);
     }
     
     toggle() {
@@ -32,7 +36,11 @@ class Header extends Component {
     }
   
     componentDidMount(){
-    console.info("starting");
+    console.info("starting:", this.state.menu);
+    
+    this.state.menu.map((item)=>{
+        console.log("header name:",item.title);
+    });
 
   }
 
@@ -57,8 +65,18 @@ class Header extends Component {
     e.preventDefault();
     document.body.classList.toggle('aside-menu-hidden');
   }
+    
 
   render() {
+const tempMenu = this.props.menu//.map((item)=>item.title);
+const Menu = tempMenu.map((item)=>
+    <Nav className="ml">
+        <NavItem>
+            <NavLink href={"/"+item.link}>{item.title}</NavLink>
+        </NavItem>
+    </Nav>
+);
+      console.log("header props:", Menu);
     return (
         <div>
          <Navbar color="dark" dark expand="md" >
@@ -68,22 +86,8 @@ class Header extends Component {
                   <span className="navbar-toggler-icon"></span>
           </NavbarToggler>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Home</NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Page2</NavLink>
-              </NavItem>  
-            </Nav>
-            <Nav className="ml">
-              <NavItem>
-                <NavLink href="#">Page3</NavLink>
-              </NavItem>  
-            </Nav>
-            
+            {Menu.map((item)=>item)}
+
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>

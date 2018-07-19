@@ -27,16 +27,19 @@ class HomePage extends React.Component {
     
      constructor(props) {
     super(props);
+    
     this.state = {
       userInfo: auth.getUserInfo(),
       isLogin : auth.getUserInfo() ? true : false
     };
     }  
   
+
 render() {
+    console.log("home page prop",this.props.menu);
     return (
       <div >
-      <Header/>
+      <Header menu={this.props.menu}/>
 
         <div style={{ marginTop: '15%' }}>
           {this.state.isLogin ? (<h1>{this.state.userInfo.username}.. You're now logged in!!!{this.state.isLogin}</h1>) :
