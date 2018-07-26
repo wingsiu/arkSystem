@@ -1,28 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from 'react-apollo';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router";
 
-import './index.css';
-import App from './containers/App';
-import registerServiceWorker from './registerServiceWorker';
+import indexRoutes from "routes/index.jsx";
+import App from "views/App/App.jsx";
 
-import client from './apollo-client';
-// Styles
-// Import Flag Icons Set
-//import 'flag-icon-css/css/flag-icon.min.css';
-// Import Font Awesome Icons Set
-//import 'font-awesome/css/font-awesome.min.css';
-// Import Simple Line Icons Set
-//import 'simple-line-icons/css/simple-line-icons.css';
-// Import Main styles for this application
-import './scss/style.scss'
-// Temp fix for reactstrap
-//import '../scss/core/_dropdown-menu-right.scss'
+import "assets/scss/material-kit-react.css?v=1.1.0";
+
+var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById('root')
+  <Router history={hist}>
+    <App/>
+  </Router>,
+  document.getElementById("root")
 );
-registerServiceWorker();
